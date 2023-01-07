@@ -33,8 +33,14 @@ public class SubActivity extends AppCompatActivity {
         customerInfos.add(customerInfo);
         Log.d("#ab", customerInfos.get(0).getName());
 
-        CustomerInfoAdapter customerInfoAdapter = new CustomerInfoAdapter(this, 0, customerInfos);
+        List<ListData> objects = new ArrayList<ListData>();
+        ListData data = new ListData();
+        data.setName(name);
+        data.setSex(sex);
+        objects.add(data);
+
+        ListViewAdapter listViewAdapter = new ListViewAdapter(this, 0, objects);
         ListView listView = (ListView)findViewById(R.id.list2);
-        listView.setAdapter(customerInfoAdapter);
+        listView.setAdapter(listViewAdapter);
     }
 }
